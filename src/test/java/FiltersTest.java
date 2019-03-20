@@ -8,12 +8,13 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 class FiltersTest {
     @Test
     void shouldTestEqFilter() {
-        assertTrue(eq("abc", "abc").apply());
-        assertFalse(eq("abc", "aBc").apply());
         assertTrue(eq(1, 1).apply());
+        assertTrue(eq("abc", "abc").apply());
+        assertTrue(eq(true, true).apply());
+
+        assertFalse(eq("abc", "aBc").apply());
         assertFalse(eq(1, 2).apply());
         assertFalse(eq(true, false).apply());
-        assertTrue(eq(true, true).apply());
     }
 
     @Test

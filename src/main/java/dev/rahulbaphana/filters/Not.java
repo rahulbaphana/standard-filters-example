@@ -2,10 +2,10 @@ package dev.rahulbaphana.filters;
 
 import dev.rahulbaphana.filters.api.Filterable;
 
-public class NotFilter implements Filterable {
+public class Not implements Filterable {
     private Filterable filterToInvert;
 
-    public NotFilter(Filterable filterToInvert) {
+    public Not(Filterable filterToInvert) {
         this.filterToInvert = filterToInvert;
     }
 

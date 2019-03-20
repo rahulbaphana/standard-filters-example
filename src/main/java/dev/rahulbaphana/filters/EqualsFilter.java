@@ -12,7 +12,7 @@ public class EqualsFilter<T extends Comparable> implements Filterable {
     }
 
     @Override
-    public boolean apply() {
+    public boolean filter() {
         return op1.equals(op2);
     }
 }

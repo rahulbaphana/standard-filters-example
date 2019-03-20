@@ -8,33 +8,33 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 class FiltersTest {
     @Test
     void shouldTestEqFilter() {
-        assertTrue(eq(1, 1).apply());
-        assertTrue(eq("abc", "abc").apply());
-        assertTrue(eq(true, true).apply());
+        assertTrue(eq(1, 1).filter());
+        assertTrue(eq("abc", "abc").filter());
+        assertTrue(eq(true, true).filter());
 
-        assertFalse(eq("abc", "aBc").apply());
-        assertFalse(eq(1, 2).apply());
-        assertFalse(eq(true, false).apply());
+        assertFalse(eq("abc", "aBc").filter());
+        assertFalse(eq(1, 2).filter());
+        assertFalse(eq(true, false).filter());
     }
 
     @Test
     void shouldTestUnaryNotFilter() {
-        assertFalse(not(eq("abc", "abc")).apply());
+        assertFalse(not(eq("abc", "abc")).filter());
     }
 
     @Test
     void shouldTestAndFilter() {
-        assertFalse(and(eq("abc", "abc"), eq(1, 2)).apply());
-        assertFalse(and(eq("aBc", "abc"), eq(1, 1)).apply());
-        assertFalse(and(eq("ABC", "abc"), eq(1, 2)).apply());
-        assertTrue(and(eq("abc", "abc"), eq(1, 1)).apply());
+        assertFalse(and(eq("abc", "abc"), eq(1, 2)).filter());
+        assertFalse(and(eq("aBc", "abc"), eq(1, 1)).filter());
+        assertFalse(and(eq("ABC", "abc"), eq(1, 2)).filter());
+        assertTrue(and(eq("abc", "abc"), eq(1, 1)).filter());
     }
 
     @Test
     void shouldTestOrFilter() {
-        assertTrue(Filters.or(eq("abc", "abc"), eq(1, 1)).apply());
-        assertTrue(Filters.or(eq("aBc", "abc"), eq(1, 1)).apply());
-        assertTrue(Filters.or(eq("abc", "abc"), eq(1, 2)).apply());
-        assertFalse(Filters.or(eq("ABC", "abc"), eq(1, 2)).apply());
+        assertTrue(Filters.or(eq("abc", "abc"), eq(1, 1)).filter());
+        assertTrue(Filters.or(eq("aBc", "abc"), eq(1, 1)).filter());
+        assertTrue(Filters.or(eq("abc", "abc"), eq(1, 2)).filter());
+        assertFalse(Filters.or(eq("ABC", "abc"), eq(1, 2)).filter());
     }
 }

@@ -10,7 +10,7 @@ public class NotFilter implements Filterable {
     }
 
     @Override
-    public boolean apply() {
-        return !filterToInvert.apply();
+    public boolean filter() {
+        return !filterToInvert.filter();
     }
 }

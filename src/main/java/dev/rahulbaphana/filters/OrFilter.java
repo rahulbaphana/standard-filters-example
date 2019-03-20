@@ -12,7 +12,7 @@ public class OrFilter implements Filterable {
     }
 
     @Override
-    public boolean apply() {
-        return operation1.apply() || operation2.apply();
+    public boolean filter() {
+        return operation1.filter() || operation2.filter();
     }
 }
